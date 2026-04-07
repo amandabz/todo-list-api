@@ -138,3 +138,6 @@ To remove everything including data:
 ```bash
 docker compose down -v
 ```
+
+## Project Information
+This project is based on the [Todo List API](https://roadmap.sh/projects/todo-list-api?fl=0) from **roadmap.sh**.
