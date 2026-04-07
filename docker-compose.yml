@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:16
+    container_name: todo_postgres
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+
+# docker compose up -d
+
+# logs
+# docker compose logs -f db
+
+# stop the container without removing any data
+# docker compose stop
+
+# remove everything (including data)
+# docker compose down -v
