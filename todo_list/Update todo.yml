@@ -1,0 +1,23 @@
+info:
+  name: Update todo
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: "{{base_url}}/todos/1"
+  body:
+    type: json
+    data: |-
+      {
+        "done": true
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,30 @@
+info:
+  name: Register user
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/register/"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Carmen",
+        "email": "carmen@test.com",
+        "password": "12345678aa"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        var data = res.getBody();
+        bru.setEnvVar("token", data.token);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
